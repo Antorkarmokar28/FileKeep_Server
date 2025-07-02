@@ -1,11 +1,10 @@
+/* eslint-disable no-undef */
 // getting-started.js
 import mongoose from "mongoose";
 import app from "./app";
 import config from "./app/config";
 import { IncomingMessage, Server, ServerResponse } from "http";
 let server: Server<typeof IncomingMessage, typeof ServerResponse> | undefined;
-mainServer().catch((err) => console.log(err));
-
 async function mainServer() {
   try {
     await mongoose.connect(config.database_url as string);

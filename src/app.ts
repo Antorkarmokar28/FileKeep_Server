@@ -6,8 +6,14 @@ const app: Application = express();
 app.use(express.json());
 app.use(cors({ origin: "*", credentials: true }));
 app.use(cookieParser());
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello World!");
-});
+
+const testServer = async (req: Request, res: Response) => {
+  res.send({
+    success: true,
+    message: "The Filekeep server is running...",
+  });
+};
+
+app.get("/", testServer);
 
 export default app;
